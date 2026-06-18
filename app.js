@@ -1,10 +1,11 @@
 const express = require('express');
 const multer = require('multer');
 const TelegramBot = require('node-telegram-bot-api');
+const cors = require('cors');
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-
+app.use(cors()); 
 // Store uploaded files in memory; swap for multer.diskStorage to save to disk
 const upload = multer({ storage: multer.memoryStorage() });
 
